@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  background-color: black;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+.marvelLogo {
+  width: 130px;
+  aspect-ratio: auto;
+}
+
+.favorites {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}

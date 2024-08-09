@@ -1,0 +1,37 @@
+.header {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+}
+
+// .cardsContainer {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   gap: 1rem;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+.cardsContainer {
+  display: grid;
+  box-sizing: border-box;
+  width: 100%;
+  gap: 1rem;
+  padding: 3rem;
+  margin: 0 auto;
+
+  // Para pantallas grandes (desktop)
+  grid-template-columns: repeat(7, 1fr); // 7 columnas iguales
+
+  // Para tabletas
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr); // 4 columnas en tabletas
+  }
+
+  // Para móviles
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columnas en móviles
+  }
+}
