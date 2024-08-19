@@ -1,24 +1,57 @@
 import React from "react";
 import styles from "./CharacterCard.module.scss";
+import { useFavorites } from "../context/FavContext";
+import Image from "next/image";
+import Link from "next/link";
 
-interface CharacterCardProps {
+interface Character {
+  id: number;
   name: string;
-  image: string;
+  thumbnail: {
+    path: string;
+    extension: string;
+  };
 }
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ name, image }) => {
+interface CharacterCardProps {
+  character: Character;
+}
+
+const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+  const { favorites, toggleFavorite } = useFavorites();
+
+  const isFavorite = favorites.some((fav) => fav.id === character.id);
+
+  const image = character?.thumbnail
+    ? `${character.thumbnail.path}.${character.thumbnail.extension}`
+    : "url-to-placeholder-image.png";
+
   return (
     <div className={styles.card}>
       <img
         src={image}
-        alt={name}
+        alt={character.name}
         className={styles.characterImage}
         loading="lazy"
       />
       <div className={styles.info}>
-        <p className={styles.characterName}>{name}</p>
+        <Link
+          href={`/character/${character.id}`}
+          className={styles.characterName}>
+          {character.name}
+        </Link>
         <div className={styles.favoritesInfo}>
-          <img className={styles.heartIcon} src="img/heart-icon.png" />
+          <div onClick={() => toggleFavorite(character)}>
+            <Image
+              className={styles.heartIcon}
+              src={
+                isFavorite ? "/img/heart-icon.png" : "/img/heart-icon-white.png"
+              }
+              alt="favorites"
+              width={12}
+              height={12}
+            />
+          </div>
         </div>
       </div>
     </div>

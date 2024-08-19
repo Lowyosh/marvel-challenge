@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Marvel Characters App
 
-## Getting Started
+![marvelLogo](marvel-logo.jpg)
 
-First, run the development server:
+## Descripción
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Este proyecto es una prueba técnica que consiste en el desarrollo de una aplicación web que consume la API de Marvel para mostrar información sobre personajes de Marvel Comics. El objetivo principal de este proyecto fue demostrar mis habilidades técnicas al enfrentarme a retos complejos y manejar deadlines, todo mientras aprendo y aplico nuevas tecnologías.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A través de esta prueba, he mejorado mi capacidad para trabajar de manera independiente, resolver problemas y optimizar el rendimiento de la aplicación, especialmente en la carga inicial de datos.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Lenguaje de programación:** TypeScript
+- **Frameworks y Librerías:** React, Next.js
+- **Llamadas a API:** Fetch API
+- **Estilos:** CSS Modules
+- **Autenticación y Seguridad:** API de Marvel (autenticación con API key y hash)
+- **Control de Versiones:** Git y Github
 
-## Learn More
+## Instalación
 
-To learn more about Next.js, take a look at the following resources:
+Para clonar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clona el repositorio:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/Lowyosh/marvel-challenge.git
+   ```
 
-## Deploy on Vercel
+2. **Navega al directorio del proyecto:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   cd marvel-challenge
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Instala las dependencias:**
+
+   ```bash
+   npm install
+   ```
+
+4. **Configura las variables de entorno:**
+
+   Crea un archivo `.env.local` en la raíz del proyecto y agrega tus claves de la API de Marvel:
+
+   ```env
+   NEXT_PUBLIC_MARVEL_PUBLIC_KEY=tu_public_key
+   NEXT_PUBLIC_MARVEL_PRIVATE_KEY=tu_private_key
+   ```
+
+5. **Ejecuta la aplicación en modo de desarrollo:**
+
+   ```bash
+   npm run dev
+   ```
+
+   La aplicación estará disponible en `http://localhost:3000`.
+
+## En construcción
+
+Este proyecto...

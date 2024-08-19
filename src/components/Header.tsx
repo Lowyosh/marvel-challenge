@@ -1,15 +1,21 @@
 import React from "react";
 import styles from "../components/Header.module.scss";
+import { useFavorites } from "../context/FavContext";
 
 const Header = () => {
+  const { favorites } = useFavorites();
+
   return (
     <section className={styles.header}>
       <div className={styles.headerContent}>
-        <img className={styles.marvelLogo} src="img/marvel-logo.jpg" />
-        <div className={styles.favorites}>
+        <a href="/">
+          <img className={styles.marvelLogo} src="img/marvel-logo.jpg" />
+        </a>
+
+        <a className={styles.favorites} href="/favorites">
           <img className={styles.heartIcon} src="img/heart-icon.png" />
-          <p>3</p>
-        </div>
+          <p className={styles.favoritesCount}>{favorites.length}</p>
+        </a>
       </div>
     </section>
   );

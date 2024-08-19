@@ -1,0 +1,22 @@
+.searchBar {
+  margin: 1rem 3rem;
+  border-bottom: 1px solid black;
+  padding-top: 1rem;
+}
+
+.searchInput {
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+
+  ::placeholder {
+    color: #aaaaaa;
+    font-size: 16px;
+  }
+
+  ::-webkit-input-placeholder {
+    border-style: none;
+    outline-style: none;
+  }
+}

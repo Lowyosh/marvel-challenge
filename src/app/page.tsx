@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import styles from "../styles/page.module.scss";
 import CharacterCard from "../components/CharacterCard";
 import Header from "@/components/Header";
-import { fetchCharacters } from "../utils/api";
+import { fetchInitialCharacters, fetchCharacters } from "../utils/api";
 import "normalize.css";
+import SearchBar from "@/components/SearchBar";
 
 interface Character {
   id: number;
@@ -15,34 +16,55 @@ interface Character {
     extension: string;
   };
 }
+
 export default function Home() {
   const [characters, setCharacters] = useState<Character[]>([]);
+  const [searching, setSearching] = useState(false);
+  const [resultCount, setResultCount] = useState(0);
+
+  const handleSearch = async (query: string) => {
+    if (query.length >= 3) {
+      try {
+        const results = await fetchCharacters(query);
+        setCharacters(results || []);
+        setResultCount(results ? results.length : 0);
+      } catch (error) {
+        console.error("Error during search:", error);
+      }
+    } else if (query.length === 0) {
+      setSearching(false);
+      setResultCount(0);
+    }
+  };
 
   useEffect(() => {
-    const getCharacters = async () => {
+    const loadInitialCharacters = async () => {
       try {
-        const data = await fetchCharacters();
-        console.log(data);
-        setCharacters(data);
+        const characters = await fetchInitialCharacters();
+        const filteredCharacters = characters.map(
+          (character: { id: number; name: any; thumbnail: any }) => ({
+            id: character.id,
+            name: character.name,
+            thumbnail: character.thumbnail,
+          })
+        );
+        setCharacters(filteredCharacters);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching initial characters:", error);
       }
     };
 
-    getCharacters();
+    loadInitialCharacters();
   }, []);
 
   return (
     <main>
-      <Header></Header>
-
+      <Header />
+      <SearchBar onSearch={handleSearch} />
+      <p className={styles.results}>{resultCount} RESULTS</p>
       <div className={styles.cardsContainer}>
-        {characters.map((character) => (
-          <CharacterCard
-            key={character.id}
-            name={character.name}
-            image={`${character.thumbnail.path}/standard_medium.${character.thumbnail.extension}`}
-          />
+        {characters?.map((character) => (
+          <CharacterCard key={character.id} character={character} />
         ))}
       </div>
     </main>

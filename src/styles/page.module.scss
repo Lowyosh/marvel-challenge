@@ -22,16 +22,34 @@
   padding: 3rem;
   margin: 0 auto;
 
-  // Para pantallas grandes (desktop)
-  grid-template-columns: repeat(7, 1fr); // 7 columnas iguales
+  //desktop
+  grid-template-columns: repeat(7, 1fr); // 7 columnas
 
-  // Para tabletas
+  // tablet
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr); // 4 columnas en tabletas
+    grid-template-columns: repeat(4, 1fr); // 4col
   }
 
-  // Para móviles
+  // movil
   @media (max-width: 600px) {
-    grid-template-columns: repeat(2, 1fr); // 2 columnas en móviles
+    grid-template-columns: repeat(2, 1fr); // 2col
   }
+}
+
+.results {
+  font-size: 12px;
+  color: black;
+  margin: 0 3rem;
+}
+
+.favTitle {
+  padding: 0 3rem;
+  margin: 0;
+  margin-top: 3rem;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.favText {
+  padding: 3rem;
 }
