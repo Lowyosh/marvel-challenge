@@ -1,6 +1,6 @@
-# Marvel Characters App
+![marvelLogo](/public/img/marvel-logo.jpg)
 
-![marvelLogo](marvel-logo.jpg)
+# Marvel Characters App
 
 ## Descripción
 
