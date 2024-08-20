@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import styles from "../styles/page.module.scss";
 import CharacterCard from "../components/CharacterCard";
 import Header from "@/components/Header";
+import { FavoritesProvider } from "@/context/FavContext";
 import { fetchInitialCharacters, fetchCharacters } from "../utils/api";
 import "normalize.css";
 import SearchBar from "@/components/SearchBar";
+import Link from "next/link";
 
 interface Character {
   id: number;
@@ -28,6 +30,8 @@ export default function Home() {
         const results = await fetchCharacters(query);
         setCharacters(results || []);
         setResultCount(results ? results.length : 0);
+        console.log(resultCount);
+        console.log(results);
       } catch (error) {
         console.error("Error during search:", error);
       }
@@ -48,7 +52,14 @@ export default function Home() {
             thumbnail: character.thumbnail,
           })
         );
+        setResultCount(filteredCharacters.length);
+        console.log(resultCount);
+
         setCharacters(filteredCharacters);
+        setResultCount(characters.length);
+        console.log(resultCount);
+        setResultCount(50);
+        console.log(resultCount);
       } catch (error) {
         console.error("Error fetching initial characters:", error);
       }

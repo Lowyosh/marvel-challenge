@@ -17,7 +17,7 @@ interface CharacterCardProps {
   character: Character;
 }
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   const { favorites, toggleFavorite } = useFavorites();
 
   const isFavorite = favorites.some((fav) => fav.id === character.id);
@@ -35,9 +35,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
         loading="lazy"
       />
       <div className={styles.info}>
-        <Link
-          href={`/character/${character.id}`}
-          className={styles.characterName}>
+        <Link href={`/another`} className={styles.characterName}>
           {character.name}
         </Link>
         <div className={styles.favoritesInfo}>

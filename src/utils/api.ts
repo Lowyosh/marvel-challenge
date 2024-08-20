@@ -53,7 +53,7 @@ export const fetchCharacters = async (query: string) => {
 };
 
 // Función para obtener un personaje por su ID
-export const fetchCharacterById = async (id: string | string[]) => {
+export const fetchCharacterById = async (id: number | number[]) => {
   const publicKey = API_KEY;
   const privateKey = PRIVATE_KEY;
   const ts = new Date().getTime();

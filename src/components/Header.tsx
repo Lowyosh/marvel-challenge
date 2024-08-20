@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../components/Header.module.scss";
 import { useFavorites } from "../context/FavContext";
+import Link from "next/link";
 
 const Header = () => {
   const { favorites } = useFavorites();
@@ -8,14 +9,14 @@ const Header = () => {
   return (
     <section className={styles.header}>
       <div className={styles.headerContent}>
-        <a href="/">
+        <Link href="/">
           <img className={styles.marvelLogo} src="img/marvel-logo.jpg" />
-        </a>
+        </Link>
 
-        <a className={styles.favorites} href="/favorites">
+        <Link className={styles.favorites} href="/favorites">
           <img className={styles.heartIcon} src="img/heart-icon.png" />
           <p className={styles.favoritesCount}>{favorites.length}</p>
-        </a>
+        </Link>
       </div>
     </section>
   );

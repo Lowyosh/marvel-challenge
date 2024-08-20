@@ -3,8 +3,8 @@ import React from "react";
 import { useFavorites } from "../../../context/FavContext";
 import CharacterCard from "../../../components/CharacterCard";
 import styles from "../../styles/page.module.scss";
-import Header from "@/components/Header";
-import SearchBar from "@/components/SearchBar";
+import Header from "../../../components/Header";
+import SearchBar from "../../../components/SearchBar";
 
 interface Character {
   id: number;
